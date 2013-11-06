@@ -4,7 +4,7 @@ GAnalytics: Google Analytics for Meteor
 Log page views and events to Google Analytics.
 ### Installing
 ```
-mrt install ganalytics
+mrt install GAnalytics
 ```
 
 If you don't have a settings.json file, you need to add one and load it according to the Meteor documentation. http://docs.meteor.com/#meteor_settings
