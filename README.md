@@ -2,6 +2,9 @@ GAnalytics: Google Analytics for Meteor
 ===================================
 
 Log page views and events to Google Analytics.
+
+**NOTE:** This package uses the newer *analytics.js* file for ["Universal Analytics"](https://support.google.com/analytics/answer/2790010?hl=en). This package will not work if you are not on the newer collection system. 
+
 ### Installing
 ```
 mrt add GAnalytics
