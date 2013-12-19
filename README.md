@@ -23,8 +23,16 @@ In settings.json add
 }
 ```
 ### Usage
+Example router code to log pageviews for routes:
+```js
+Meteor.Router.add({
+  '/': function() {
+    GAnalytics.pageview();
+    return 'home';}
+})
+```
 
-In your router or controller:
+In your controller code:
 ```js
 GAnalytics.pageview();
 GAnalytics.pageview("/hello");
