@@ -37,7 +37,7 @@ if(Meteor.settings && Meteor.settings.public !== undefined && Meteor.settings.pu
     gaConfig.cookieExpires = gaSettings.cookieExpires;
 
   // if gaConfig is still empty, default it to 'auto'
-  if(_.isEmpty(gaConfig))
+  if(Object.keys(gaConfig).length === 0)
     gaConfig = 'auto';
 
   ga('create', gaSettings.account, gaConfig);
