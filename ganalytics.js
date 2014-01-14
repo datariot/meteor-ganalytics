@@ -22,8 +22,26 @@ load = function(i,s,o,g,r,a,m) {
 if(Meteor.settings && Meteor.settings.public !== undefined && Meteor.settings.public.ga !== undefined && Meteor.settings.public.ga.account !== undefined) {
 
   load(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', Meteor.settings.public.ga.account);
+
+  var gaSettings = Meteor.settings.public.ga,
+      gaConfig = {};
+
+  // cookie settings
+  if(typeof gaSettings.cookieName !== 'undefined')
+    gaConfig.cookieName = gaSettings.cookieName;
+
+  if(typeof gaSettings.cookieDomain !== 'undefined')
+    gaConfig.cookieDomain = gaSettings.cookieDomain;
   
+  if(typeof gaSettings.cookieExpires !== 'undefined')
+    gaConfig.cookieExpires = gaSettings.cookieExpires;
+
+  // if gaConfig is still empty, default it to 'auto'
+  if(Object.keys(gaConfig).length === 0)
+    gaConfig = 'auto';
+
+  ga('create', gaSettings.account, gaConfig);
+
   GAnalytics.pageview = function(pageLocation) {
     if(!pageLocation) {
       pageLocation = window.location.pathname;
