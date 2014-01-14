@@ -52,8 +52,8 @@ You can also [provide options](https://developers.google.com/analytics/devguides
   "public" : {
     "ga": {
       "account":"UA-XXXXXXX-Y",
-      "cookieName": "new_cookie_name"
-      "cookieDomain": "mynew.domain.com"
+      "cookieName": "new_cookie_name",
+      "cookieDomain": "mynew.domain.com",
       "cookieExpires": 60 * 60 * 24 * 28  // Time in seconds.
     }
   }
