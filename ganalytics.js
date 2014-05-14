@@ -42,6 +42,12 @@ if(Meteor.settings && Meteor.settings.public !== undefined && Meteor.settings.pu
 
   ga('create', gaSettings.account, gaConfig);
 
+  if (gaSettings.trackInterests)
+    ga('require', 'displayfeatures');
+
+  if (gaSettings.trackInPage)
+    ga('require', 'linkid', 'linkid.js');
+
   GAnalytics.pageview = function(pageLocation) {
     if(!pageLocation) {
       pageLocation = window.location.pathname;
