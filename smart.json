@@ -1,5 +1,5 @@
 {
-  "name": "GAnalytics",
+  "name": "ganalytics",
   "description": "Use google's new analytics.js to track pageview's and events.",
   "homepage": "https://github.com/datariot/meteor-ganalytics",
   "author": "David W. Allen <david@datariot.io>",
