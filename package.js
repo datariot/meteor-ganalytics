@@ -1,5 +1,5 @@
 Package.describe({
-  summary: "Publish pageviews and events to Google Analytics using the new analytics.js code."
+  summary: "Publish pageviews and events to Google Analytics using the new analytics.js code.",
   version: "0.2.1",
   name: "datariot:ganalytics"
 });
