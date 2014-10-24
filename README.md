@@ -43,7 +43,7 @@ GAnalytics.event("account","signin","DataRiot");
 GAnalytics.event("account","signin","DataRiot", 2);
 ```
 
-### Cookie Options & advanced features
+### Cookie Options & Advanced Features
 
 You can also [provide options](https://developers.google.com/analytics/devguides/collection/analyticsjs/domains) for the Google Analytics cookie:
 
@@ -61,3 +61,7 @@ You can also [provide options](https://developers.google.com/analytics/devguides
   }
 }
 ```
+
+### Debug Mode
+
+If you pass `debug: true` as a setting, the package will output console logs on `GAnalytics.pageview()` and `GAnalytics.event()`.

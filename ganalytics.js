@@ -49,6 +49,8 @@ if(Meteor.settings && Meteor.settings.public !== undefined && Meteor.settings.pu
     ga('require', 'linkid', 'linkid.js');
 
   GAnalytics.pageview = function(pageLocation) {
+    if(!!gaSettings.debug)
+      console.log("Logging pageview: "+pageLocation)
     if(!pageLocation) {
       pageLocation = window.location.pathname;
     }
@@ -56,6 +58,8 @@ if(Meteor.settings && Meteor.settings.public !== undefined && Meteor.settings.pu
   }
   
   GAnalytics.event = function(category, action, label, value) {
+    if(!!gaSettings.debug)
+      console.log("Logging event: "+category+" | "+ action + " | " + label + " | " + value)
     ga('send', 'event', category, action, label, value);
   }
 } else {
