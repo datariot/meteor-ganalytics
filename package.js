@@ -9,5 +9,5 @@ Package.onUse(function (api) {
   api.addFiles(['ganalytics.js'], 'client');
   
   api.export(['GAnalytics'], 'client');
-  }
+
 });
