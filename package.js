@@ -1,12 +1,13 @@
 Package.describe({
   summary: "Publish pageviews and events to Google Analytics using the new analytics.js code."
+  version: "0.2.1",
+  name: "datariot:ganalytics"
 });
 
-Package.on_use(function (api) {
+Package.onUse(function (api) {
 
-  api.add_files(['ganalytics.js'], 'client');
+  api.addFiles(['ganalytics.js'], 'client');
   
-  if (typeof api.export !== 'undefined') {
-    api.export(['GAnalytics'], 'client');
+  api.export(['GAnalytics'], 'client');
   }
 });
