@@ -32,9 +32,15 @@ if(Meteor.settings && Meteor.settings.public !== undefined && Meteor.settings.pu
 
   if(typeof gaSettings.cookieDomain !== 'undefined')
     gaConfig.cookieDomain = gaSettings.cookieDomain;
-  
+
   if(typeof gaSettings.cookieExpires !== 'undefined')
     gaConfig.cookieExpires = gaSettings.cookieExpires;
+
+  if(typeof gaSettings.alwaysSendReferrer !== 'undefined')
+    gaConfig.alwaysSendReferrer = gaSettings.alwaysSendReferrer;
+
+  if(typeof gaSettings.cookiePath !== 'undefined')
+    gaConfig.cookiePath = gaSettings.cookiePath;    
 
   // if gaConfig is still empty, default it to 'auto'
   if(Object.keys(gaConfig).length === 0)
@@ -56,7 +62,7 @@ if(Meteor.settings && Meteor.settings.public !== undefined && Meteor.settings.pu
     }
     ga('send', 'pageview', pageLocation);
   }
-  
+
   GAnalytics.event = function(category, action, label, value) {
     if(!!gaSettings.debug)
       console.log("Logging event: "+category+" | "+ action + " | " + label + " | " + value)
@@ -65,6 +71,3 @@ if(Meteor.settings && Meteor.settings.public !== undefined && Meteor.settings.pu
 } else {
   console.log("public.ga.account has not been set in your settings.json file.");
 }
-
-
-
