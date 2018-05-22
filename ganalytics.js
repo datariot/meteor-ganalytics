@@ -41,6 +41,10 @@ if(Meteor.settings && Meteor.settings.public !== undefined && Meteor.settings.pu
     gaConfig = 'auto';
 
   ga('create', gaSettings.account, gaConfig);
+  
+  if(gaSettings.anonymizeIp) {
+    ga('set', 'anonymizeIp', true);
+  }
 
   if (gaSettings.trackInterests)
     ga('require', 'displayfeatures');
