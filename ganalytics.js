@@ -1,11 +1,36 @@
 GAnalytics = {}
 
+GAnalytics.send = function(){
+  console.log("Analytics code is not loaded yet.");
+}
+
 GAnalytics.pageview = function(pageLocation) {
-    console.log("Analytics code is not loaded yet.");
-  };
+  if(!pageLocation) {
+    pageLocation = window.location.pathname;
+  }
+  GAnalytics.send('pageview', pageLocation);
+}
+
 GAnalytics.event = function(category, action, label, value) {
-    console.log("Analytics code is not loaded yet.");
-  };
+  GAnalytics.send('event', category, action, label, value);
+}
+
+GAnalytics.social = function(socialNetwork, socialAction, socialTarget) {
+  GAnalytics.send('social', socialNetwork, socialAction, socialTarget);
+}
+
+GAnalytics.screenview = function(screenName) {
+  GAnalytics.send('screenview', screenName);
+}
+
+GAnalytics.timing = function(timingCategory, timingVar, timingValue, timingLabel) {
+  GAnalytics.send('timing', timingCategory, timingVar, timingValue, timingLabel);
+}
+
+GAnalytics.exception = function(exDescription, exFatal) {
+  GAnalytics.send('exception', exDescription, exFatal);
+}
+
 
 
 load = function(i,s,o,g,r,a,m) {
@@ -52,23 +77,13 @@ if(Meteor.settings && Meteor.settings.public !== undefined && Meteor.settings.pu
   if (gaSettings.trackInPage)
     ga('require', 'linkid', 'linkid.js');
 
-  GAnalytics.pageview = function(pageLocation) {
+  GAnalytics.send = function(type, ...args){
     if(!!gaSettings.debug)
-      console.log("Logging pageview: "+pageLocation)
-    if(!pageLocation) {
-      pageLocation = window.location.pathname;
-    }
-    ga('send', 'pageview', pageLocation);
+      console.log("Logging " + type + ": " + args.join(" | "));
+
+    ga('send', type, ...args);
   }
-  
-  GAnalytics.event = function(category, action, label, value) {
-    if(!!gaSettings.debug)
-      console.log("Logging event: "+category+" | "+ action + " | " + label + " | " + value)
-    ga('send', 'event', category, action, label, value);
-  }
+
 } else {
   console.log("public.ga.account has not been set in your settings.json file.");
 }
-
-
-
